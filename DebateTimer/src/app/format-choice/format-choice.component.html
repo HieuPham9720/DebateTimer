@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit(formatForm)" #formatForm="ngForm">
+    <div class="form-group">
+        <label for="format">Chọn 1 luật dưới đây:</label>
+        <select
+            id="format"
+            class="form-control"
+            [ngModel]="defaultFormat"
+            name="format"
+            required>
+            <option value="AP">Luật Nghị viện Châu Á (Asian Parliamentary - AP)</option>
+            <option value="BP">Luật Nghị viện Anh (British Parliamentary - BP)</option>
+        </select>
+    </div>
+    <button class="btn btn-success">Bắt đầu bấm giờ</button>
+</form>

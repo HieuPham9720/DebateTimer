@@ -1,0 +1,26 @@
+<div *ngIf="format === undefined; else validFormat">
+    <p>Bạn chưa chọn luật debate. Vui lòng quay lại.</p>
+    <button class="btn btn-danger" routerLink="">Quay lại</button>
+</div>
+<ng-template #validFormat>
+    <h2>Bấm giờ cho luật {{ format.name }}</h2>
+    <div class="clock">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- font size goes up here -->
+                <label *ngIf="isPrepTime">Thời gian chuẩn bị:&nbsp;</label>
+                <label *ngIf="!isPrepTime">Bài nói của {{ currentSpeech }}:&nbsp;</label>
+                <b>{{ displayMinute }} : {{ displaySecond }}</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-success" (click)="startTimer()">Bắt đầu</button>
+                <button class="btn btn-primary" (click)="pauseTimer()">Tạm dừng</button>
+                <!-- <button class="btn btn-danger" (click)="stopTimer()">Kết thúc</button> -->
+                <button class="btn btn-danger" (click)="skipTimer()">Bỏ qua</button>
+                <button class="btn btn-success" (click)="restartTimer()">Từ đầu</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
